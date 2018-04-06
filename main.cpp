@@ -148,7 +148,12 @@ int main()
         winner = 'O';
         playing = false;
     }
+    
+    if(winner != ' ')
+    {
     cout<<winner<<" is winner!"<<endl;
+    }
+  
   }
   while( playing );
 
