@@ -10,7 +10,7 @@ const char BLANK = ' ';
 const char X = 'X';
 const char O = 'O';
 const int QUIT = -1;
-
+char winner = ' ';
 int main()
 {
   //3x3 matrix of characters, initially with blank spaces in each position
@@ -40,6 +40,19 @@ int main()
     {
       cout<<"Values must be between 0 and 2.\n";
     }
+    else
+    {
+    board[row][column]= turn;
+        if(turn==X)
+        {
+            turn=O;
+        }
+        else if(turn==O)
+        {
+            turn=X;
+        }
+    }
+
     //TODO: Place the piece and swap turns
     //Outline
     //1. When neither of the (above) if nor else if statements are true, then...
@@ -50,17 +63,54 @@ int main()
     //1-C-1.  turn should be assigned the value 'X'
     
     cout<<"\nBOARD\n-----\n";
-    //TODO: Print the current board
-    //Outline
-    //1. Traverse through each row, calling the current row r
-    //1-A. Traverse through each column in row r, calling the current column c
-    //1-A-1.  Display the value of the board at location of r and c
-    //1-A-2. Display a space
-    //1-B. Display an newline to move to the next row of the board
+    cout<<board[0][0]<<" "<<board[0][1]<<" "<<board[0][2]<<" "<<endl;
+    cout<<board[1][0]<<" "<<board[1][1]<<" "<<board[1][2]<<" "<<endl;
+    cout<<board[2][0]<<" "<<board[2][1]<<" "<<board[2][2]<<" "<<endl;
     
-  }while( playing );
+    if((board[0][0]=='X')&&(board[0][1]=='X')&&(board[0][2]=='X'))
+    {
+        winner= 'X';
+        playing= false;
+    }
+    else if((board[1][0]=='X')&&(board[1][1]=='X')&&(board[1][2]=='X'))
+    {
+        winner= 'X';
+        playing = false;
+    }
+    else if((board[2][0]=='X')&&(board[2][1]=='X')&&(board[2][2]=='X'))
+    {
+        winner = 'X';
+        playing = false;
+    }
+    else if ((board[0][0]=='X')&&(board[1][0]=='X')&&(board[2][0]=='X'))
+    {
+        winner= 'X';
+        playing = false;
+    }
+    else if ((board[0][1]=='X')&&(board[1][1]=='X')&&(board[2][1]=='X'))
+    {
+        winner = 'X';
+        playing = false;
+    }
+    else if ((board[0][2]=='X')&&(board[1][2]=='X')&&(board[2][2]=='X')
+    {
+        winner = 'X';
+        playing = false;
+    }
+    else if ((board[0][0]=='X')&&(board[1][1]=='X')&&(board[2][2]=='X')
+    {   
+        winner = 'X';
+        playing = false;
+    }
+    else if ((board[0][2]=='X')&&(board[1][1]=='X')&&(board[2][2]=='X')
+    {
+        winner = 'X';
+        playing = false;
+    }
+  }
+  while( playing );
 
   cout<<"Goodbye!\n";
-
+  
   return 0;
 }
