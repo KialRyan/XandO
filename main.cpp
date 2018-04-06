@@ -151,7 +151,7 @@ int main()
     
     if(winner != ' ')
     {
-    cout<<winner<<" is winner!"<<endl;
+    cout<<"Winner is "<<winner<<endl;
     }
   
   }
